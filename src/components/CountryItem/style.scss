@@ -1,0 +1,64 @@
+@import '../../theme/_variable';
+
+@mixin theme-colors($dark-theme: true) {
+  @if $dark-theme {
+    .info{
+      background-color: $backgroundDark2;
+      h1{
+        color: $colorDark1;
+      }
+      p{
+        color: $colorDark2;
+      }
+    }
+  } @else {
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+    .info{
+      background-color: $backgroundWhite2;
+      h1{
+        color: $colorWhite2;
+      }
+      p{
+        color: $colorWhite2;
+      }
+    }
+  }
+}
+
+
+.country-item-container{
+  width: 280px;
+  min-height: 330px;
+  margin: 20px 0;
+  &.dark{
+    @include theme-colors(true);
+  }
+  &.light{
+    @include theme-colors(false);
+  }
+
+  .flag{
+    img{
+      width: 260px;
+      height: 130px;
+      border-radius: 5px 5px 0 0;
+    }
+  }
+  .info{
+    height: 200px;
+    width: 260px;
+    color: white;
+    padding: 15px 30px 35px 30px;
+    border-radius: 0 0 5px 5px;
+    h1{
+      font-size: 1.6rem;
+      margin: 15px 0;
+      color: $colorDark1;
+    }
+    p{
+      opacity: 0.8;
+      font-size: 1.4rem;
+      margin: 5px 0;
+    }
+  }
+}

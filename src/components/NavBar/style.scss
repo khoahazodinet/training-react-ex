@@ -1,0 +1,71 @@
+@import "../../theme/_variable";
+
+@mixin theme-colors($dark-theme: true) {
+  @if $dark-theme {
+    background-color: $backgroundDark2;
+    color: $colorDark2;
+    .items{
+      .item{
+        .isDarkModeBtn{
+          background-color: $backgroundDark2;
+          color: $colorDark2;
+        }
+      }
+    }
+  } @else {
+    background-color: $backgroundWhite1;
+    color: $colorWhite2;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+    .items{
+      .item{
+        .isDarkModeBtn{
+          background-color: $backgroundWhite1;
+          color: $colorWhite2;
+        }
+      }
+    }
+  }
+}
+
+.nav-container{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 11;
+  //common
+  .items{
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    .item{
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 1.6rem;
+      .isDarkModeBtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        border: none;
+        height: 30px;
+        padding: 10px;
+      }
+    }
+  }
+  //dark
+
+  &.dark{
+    @include theme-colors($dark-theme: true)
+  }
+  &.light{
+    @include theme-colors($dark-theme: false)
+  }
+
+}
